@@ -1,4 +1,3 @@
-
 package com.prj1.controller;
 
 import com.prj1.domain.Member;
@@ -34,5 +33,18 @@ public class MemberController {
 	public String list(Model model) {
 		model.addAttribute("memberList", service.list());
 		return "member/list";
+	}
+
+	@GetMapping("")
+	public String info(Integer id, Model model) {
+		model.addAttribute("member", service.get(id));
+		return "member/info";
+	}
+
+	@PostMapping("remove")
+	public String remove(Integer id) {
+		service.remove(id);
+
+		return "redirect:/member/signup";
 	}
 }

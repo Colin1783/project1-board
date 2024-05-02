@@ -1,4 +1,3 @@
-
 package com.prj1.service;
 
 import com.prj1.domain.Member;
@@ -22,5 +21,13 @@ public class MemberService {
 
 	public List<Member> list() {
 		return mapper.selectAll();
+	}
+
+	public Member get(Integer id) {
+		return mapper.selectById(id);
+	}
+
+	public void remove(Integer id) {
+		mapper.deleteById(id);
 	}
 }

@@ -1,4 +1,3 @@
-
 package com.prj1.domain;
 
 import lombok.Data;

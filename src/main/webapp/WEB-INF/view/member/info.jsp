@@ -44,7 +44,8 @@
 
                 <div>
                     <button class="btn btn-danger" form="formDelete">탈퇴</button>
-                    <button class="btn btn-primary" form="formModify">수정</button>
+
+                    <a class="btn btn-secondary" href="/member/modify?id=${member.id}">정보 수정</a>
                 </div>
             </div>
 
@@ -56,11 +57,7 @@
         <input type="hidden" name="id" value="${member.id}">
     </form>
 </div>
-<div class="d-none">
-    <form action="/member/modify" id="formModify" method="post">
-        <input type="hidden" name="id" value="${member.id}">
-    </form>
-</div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
         integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="

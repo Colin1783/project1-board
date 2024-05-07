@@ -24,11 +24,13 @@
                     </li>
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
+                    <sec:authorize access="hasAuthority('admin')">
                     <li class="nav-item">
                         <a href="/member/list" class="nav-link">
                             회원목록
                         </a>
                     </li>
+                    </sec:authorize>
                 </sec:authorize>
                 <sec:authorize access="not isAuthenticated()">
                     <li class="nav-item">
@@ -50,6 +52,16 @@
                     </li>
                 </sec:authorize>
             </ul>
+
+            <sec:authorize access="isAuthenticated()">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <span class="nav-link">
+                            <sec:authentication property="name"/> 님
+                        </span>
+                    </li>
+                </ul>
+            </sec:authorize>
         </div>
     </div>
 </nav>

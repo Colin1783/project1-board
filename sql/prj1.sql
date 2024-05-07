@@ -49,8 +49,17 @@ ADD COLUMN member_id INT REFERENCES member(id);
 
 UPDATE board
 SET member_id = 7
-WHERE id = 1;
-
 WHERE id BETWEEN 1 AND (SELECT MAX(id) FROM board);
 
-INSERT INTO board
+CREATE TABLE authority
+(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    member_id INT NOT NULL REFERENCES member(id),
+    name VARCHAR(20) NOT NUll
+);
+
+INSERT INTO authority
+(member_id, name)
+VALUES (11, 'admin');
+
+

@@ -54,6 +54,12 @@
                 </div>
                     </c:if>
                 </sec:authorize>
+
+                <sec:authorize access="hasAuthority('admin')">
+                    <div>
+                            <button class="btn btn-danger" form="formRemove">회원 삭제</button>
+                    </div>
+                </sec:authorize>
             </div>
 
         </div>
@@ -64,7 +70,11 @@
         <input type="hidden" name="id" value="${member.id}">
     </form>
 </div>
-
+<div class="d-none" onsubmit="return confirm('강퇴하시겠습니까?')">
+    <form action="/member/remove" id="formRemove" method="post">
+        <input type="hidden" name="id" value="${member.id}">
+    </form>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
         integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
